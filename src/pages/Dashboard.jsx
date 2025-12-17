@@ -13,7 +13,7 @@ export default function Dashboard() {
   return (
     <PageWrapper>
       <div className="p-6 md:p-10">
-        <h2 className="text-2xl mb-6 text-center text-red-400 system-title">
+        <h2 className="text-4xl font-bold mb-6 text-center text-red-400 system-title">
           Detection Dashboard
         </h2>
 

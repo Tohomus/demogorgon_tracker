@@ -29,12 +29,22 @@ export default function ImageDetect() {
 
   const handleUpload = () => {
     if (!file) {
-      alert("Please choose an image first");
+      alert("Please choose an image or video first");
       return;
     }
 
+    if (file.type.startsWith("image/")) {
+      alert("Image uploaded for detection");
+    } else if (file.type.startsWith("video/")) {
+      alert("Video uploaded for detection");
+    } else {
+      alert("Unsupported file type");
+    }
+
     // Placeholder for backend integration
-    alert("Image uploaded for detection");
+    // const formData = new FormData();
+    // formData.append("file", file);
+    // await api.post("/image-or-video", formData);
   };
 
   return (
@@ -42,7 +52,7 @@ export default function ImageDetect() {
       {/* Page Content */}
       <div className="relative z-10 p-6 md:p-10 max-w-3xl mx-auto">
         <h2 className="text-2xl mb-6 text-center tracking-widest text-red-400 system-title">
-          Image Detection
+          Image & Video Detection
         </h2>
 
         {/* LIVE CAMERA FEED */}
@@ -69,13 +79,13 @@ export default function ImageDetect() {
         {/* FILE UPLOAD SECTION */}
         <div className="bg-slate-800/90 backdrop-blur-sm p-6 rounded-lg border border-slate-700">
           <p className="text-sm text-slate-300 mb-4 text-center">
-            Or upload an image
+            Upload an image or video for analysis
           </p>
 
           <div className="flex flex-col items-center gap-4">
             <input
               type="file"
-              accept="image/*"
+              accept="image/*,video/*"
               onChange={handleFileChange}
               className="
                 w-full max-w-xs
@@ -92,7 +102,7 @@ export default function ImageDetect() {
 
             {file && (
               <p className="text-xs text-slate-400">
-                Selected: {file.name}
+                Selected: {file.name} ({file.type.startsWith("video/") ? "Video" : "Image"})
               </p>
             )}
           </div>
