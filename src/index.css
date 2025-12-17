@@ -18,3 +18,98 @@ body {
     box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
   }
 }
+
+/* Cinematic portal glow */
+.portal-glow {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portal-glow::before {
+  content: "";
+  width: 520px;
+  height: 520px;
+  background: rgba(220, 38, 38, 0.18);
+  border-radius: 50%;
+  filter: blur(120px);
+  animation: pulseSlow 4s ease-in-out infinite;
+}
+
+/* Slow pulse for portal glow */
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+.animate-pulseSlow {
+  animation: pulseSlow 4s ease-in-out infinite;
+}
+
+/* Cursor blink */
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+/* Stranger Things glitch title */
+.glitch-title {
+  position: relative;
+  text-shadow:
+    0 0 5px rgba(255, 0, 0, 0.6),
+    0 0 15px rgba(255, 0, 0, 0.4);
+  animation: glitchFlicker 3s infinite;
+}
+
+@keyframes glitchFlicker {
+  0% {
+    text-shadow:
+      2px 0 red,
+      -2px 0 darkred;
+  }
+  20% {
+    text-shadow:
+      -2px -1px red,
+      2px 1px darkred;
+  }
+  40% {
+    text-shadow:
+      1px 1px red,
+      -1px -1px darkred;
+  }
+  60% {
+    text-shadow:
+      -1px 0 red,
+      1px 0 darkred;
+  }
+  100% {
+    text-shadow:
+      2px 0 red,
+      -2px 0 darkred;
+  }
+}
+
+.system-title {
+  text-shadow:
+    0 0 5px rgba(255, 0, 0, 0.6),
+    0 0 15px rgba(255, 0, 0, 0.4);
+  animation: glitchFlicker 3s infinite;
+}
+
+
